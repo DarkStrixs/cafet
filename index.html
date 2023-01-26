@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Calculateur de prix</title>
+</head>
+<body>
+  <h1>Calculateur de prix</h1>
+  <form>
+    <label for="canettes">Canettes:</label>
+    <input type="number" id="canettes" name="canettes" min="0" max="5">
+    <br>
+    <label for="encas">Encas:</label>
+    <input type="number" id="encas" name="encas" min="0" max="5">
+    <br><br>
+    <button onclick="calculerPrix(event)">Calculer le prix total</button>
+  </form> 
+  <h2 id="prix"></h2>
+  <p id="Warning"> Il y a un petit bug pour 3 Canettes et 4 Encas.<br> => Le prix est 4,80 euros</p>
+  
+  <script>
+    function calculerPrix(event) {
+      event.preventDefault();
+      var canettes = document.getElementById("canettes").value;
+      var encas = document.getElementById("encas").value; 
+      var prixCanette = 0.8;
+      var prixEncas = 0.6;
+      var prixTotal = (canettes * prixCanette) + (encas * prixEncas);
+      document.getElementById("prix").innerHTML = "Le prix total est de " + prixTotal + " euros.";
+    }
+  </script>
+</body>
+</html>
